@@ -13,9 +13,13 @@
                                 para o seu endereço de e-mail
                             </div>
                         @endif
-                        <p>Antes de prosseguir, por favor, clique no link de verificação do seu e-mail. se você 
-                            não recebeu o e-mail,</p>
-                        <a href="{{ route('verification.resend') }}">Clique aqui para receber outro</a>.
+                        <p>Antes de prosseguir, por favor, clique no link de verificação do seu e-mail. Se você 
+                            não recebeu o e-mail </p>
+                            <form action="{{ route('verification.resend') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Clique aqui para receber outro.</button>
+                            </form>
+                        
                     </div>
                 </div>
             </div>

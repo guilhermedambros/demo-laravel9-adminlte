@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
 /**Verificação de e-mail */
@@ -31,11 +31,15 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
 
-    return back()->with('message', 'Verification link sent!');
+    return back()->with('resent', 'Novo link de confirmação enviado para o e-mail!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
 /**Verificação de e-mail */
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+Route::middleware(['verified'])->group(function () {//Rotas que só podem ser acessadas depois que o email foi confirmado
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+
 
 Auth::routes();
