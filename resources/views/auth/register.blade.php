@@ -88,10 +88,15 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">
-                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                            <label for="agreeTerms">
-                                Eu concordo com os <a href="#">termos</a>
+                            <input type="checkbox" id="termos" name="termos"  value="1" class=" @error('termos') is-invalid @enderror">
+                            <label for="termos">
+                                Eu concordo com os <a href="#"  data-toggle="modal" data-target="#modalTermos">termos</a>
                             </label>
+                            @error('termos')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <!-- /.col -->
@@ -102,7 +107,7 @@
                 </div>
             </form>
 
-            <a href="{{ route('login') }}" class="text-center">Já possuo um registro</a>
+            <a href="{{ route('login') }}" class="text-center">Já tenho um registro</a>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
@@ -110,7 +115,33 @@
     <!-- /.form-box -->
 </div>
 <!-- /.register-box -->
+<!-- Modal -->
+<div class="modal fade" id="modalTermos" tabindex="-1" role="dialog" aria-labelledby="modalTermosTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTermosTitle">Termos de uso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec pharetra velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In quis vehicula nisi. Suspendisse elementum malesuada luctus. Donec mollis id purus in mollis. Aliquam feugiat, arcu imperdiet pretium luctus, arcu purus feugiat velit, et dapibus nisi magna non magna. Aliquam quis quam nec odio finibus volutpat nec sed velit. Morbi tristique iaculis sem vitae suscipit. In at eros eget urna lobortis fringilla.
 
+Phasellus id consectetur nisi, quis pulvinar massa. Fusce non ultricies enim. Aenean pellentesque viverra nunc, a molestie felis rutrum at. Aliquam id congue erat, et tincidunt lacus. Pellentesque tempus fermentum sollicitudin. Ut gravida, mi eu facilisis dignissim, lorem ipsum gravida nibh, et condimentum leo mauris eget nisi. Phasellus tincidunt erat ac tortor porta facilisis. Duis justo dui, sollicitudin non ex eu, rutrum hendrerit lorem.
+
+Vivamus nec nisi nisl. Aliquam bibendum vulputate lectus, dictum vehicula nunc molestie quis. Maecenas vitae purus scelerisque, lacinia arcu in, egestas lectus. Nam aliquet nec arcu et aliquam. In accumsan id tellus eu ultrices. Donec mattis tortor pretium felis pharetra, non convallis ante blandit. Etiam at nisi tellus. Nulla egestas blandit cursus. Aliquam suscipit ex id nunc aliquam, sed varius ipsum euismod. Fusce sit amet aliquet quam, non aliquet elit.
+
+Nulla maximus a leo ut dictum. Sed rutrum ornare mi at sollicitudin. Pellentesque a pellentesque justo. Praesent interdum turpis ut est lacinia facilisis. Integer ex nunc, porta non fermentum id, mollis et ipsum. Ut facilisis, urna nec laoreet vehicula, sapien libero auctor dolor, vitae accumsan arcu felis sit amet velit. Fusce a consequat velit, vel faucibus urna. Ut dictum turpis vel nisi laoreet iaculis. Aenean dignissim magna in ex hendrerit viverra. Cras id massa sodales, rutrum nibh quis, congue diam. Aenean ut quam bibendum elit tempor consequat elementum ac tortor.
+
+Nullam scelerisque augue mi, quis dapibus diam eleifend ac. Nulla vehicula a lorem ac rutrum. Praesent eu nibh sapien. Proin vel est vitae ligula gravida imperdiet bibendum id metus. Phasellus pulvinar augue nec ante volutpat consectetur. Aliquam hendrerit congue sapien, a faucibus tellus dictum eu. Morbi luctus porttitor molestie. Vivamus dapibus libero elit, quis varius libero placerat nec.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="{{ mix('js/app.js') }}" defer></script>
 
 </body>
