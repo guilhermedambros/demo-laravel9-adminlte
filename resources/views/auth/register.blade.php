@@ -13,6 +13,7 @@
           crossorigin="anonymous"/>
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    {!! RecaptchaV3::initJs() !!}
 
 </head>
 <body class="hold-transition register-page">
@@ -105,6 +106,7 @@
                     </div>
                     <!-- /.col -->
                 </div>
+                {!! RecaptchaV3::field('register') !!}
             </form>
 
             <a href="{{ route('login') }}" class="text-center">Já tenho um registro</a>
@@ -143,6 +145,7 @@ Nullam scelerisque augue mi, quis dapibus diam eleifend ac. Nulla vehicula a lor
   </div>
 </div>
 <script src="{{ mix('js/app.js') }}" defer></script>
+
 
 </body>
 </html>
