@@ -16,37 +16,21 @@ Links utilizados para implementações/integrações
 ## Instalação
 Clone o projeto. Substitua o conteúdo de env.example em .env e configure os parametros de BANCO, EMAIL e RECAPTCHAV3. Execute os comandos abaixo:
 
-ˋˋˋ
-php artisan key:generate
-ˋˋˋ
+`php artisan key:generate`
 
-ˋˋˋ
-composer install
-ˋˋˋ
+`composer install`
 
-ˋˋˋ
-npm install
-ˋˋˋ
+`npm install`
 
-ˋˋˋ
-npm run dev
-ˋˋˋ
+`npm run dev`
 
-ˋˋˋ
-php artisan migrate
-ˋˋˋ
+`php artisan migrate`
 
-ˋˋˋ
-php artisan db:seed --class=PermissionTableSeeder
-ˋˋˋ
+`php artisan db:seed --class=PermissionTableSeeder`
 
-ˋˋˋ
-php artisan db:seed --class=CreateAdminUserSeeder
-ˋˋˋ
+`php artisan db:seed --class=CreateAdminUserSeeder`
 
-ˋˋˋ
-php artisan serve
-ˋˋˋ
+`php artisan serve`
 
 Acesse [localhost:8000](http://localhost:8000).
 
