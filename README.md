@@ -22,9 +22,9 @@ Clone o projeto. Substitua o conteúdo de env.example em .env e configure os par
 
 `npm install`
 
-`php artisan key:generate`
-
 `npm run dev`
+
+`php artisan key:generate`
 
 `php artisan migrate`
 
