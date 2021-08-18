@@ -16,11 +16,13 @@ Links utilizados para implementações/integrações
 ## Instalação
 Clone o projeto. Substitua o conteúdo de env.example em .env e configure os parametros de BANCO, EMAIL e RECAPTCHAV3. Execute os comandos abaixo:
 
-`php artisan key:generate`
+
 
 `composer install`
 
 `npm install`
+
+`php artisan key:generate`
 
 `npm run dev`
 
