@@ -20,6 +20,14 @@
         "postcss": "^8.1.14",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.32.11",
-        "sass-loader": "^11.0.1"
+        "sass-loader": "^11.0.1",
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "choices.js": "^9.0.1",
+        "node": "^14.15.1",
+        "pikaday": "^1.8.2",
+        "vanilla-masker": "^1.2.0"
     }
 }

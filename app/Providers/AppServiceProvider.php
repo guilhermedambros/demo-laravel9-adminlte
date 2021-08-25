@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /**Set default role */
+        User::created(function ($user) {
+            $role = Role::where('name', 'Operador')->first(); 
+            $user->assignRole([$role->id]);
+        });
     }
 }
