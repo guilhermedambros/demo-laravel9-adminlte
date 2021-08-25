@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\User;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /**Set default role */
+        User::created(function ($user) {
+            $role = Role::where('name', 'Operador')->first(); 
+            $user->assignRole([$role->id]);
+        });
     }
 }
