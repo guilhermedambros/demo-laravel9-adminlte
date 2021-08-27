@@ -64,6 +64,7 @@
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <section class="content">
+            @include('partials/alert-notification')
             @yield('content')
         </section>
     </div>
