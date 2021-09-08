@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,9 +27,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         /**Set default role */
-        User::created(function ($user) {
+        /*User::created(function ($user) {
             $role = Role::where('name', 'Operador')->first(); 
             $user->assignRole([$role->id]);
-        });
+        }); */
+
+        Paginator::useBootstrap();
     }
 }
