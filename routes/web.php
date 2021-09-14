@@ -23,6 +23,9 @@ Route::get('/', function () {
 
 /**Verificação de e-mail */
 Route::get('/email/verify', function () {
+    if(Auth::user()->hasVerifiedEmail()){
+        return redirect('/home');
+    }
     return view('auth.verify');
 })->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
