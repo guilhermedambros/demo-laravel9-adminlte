@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Auth\Notifications\ResetPassword;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,6 +41,16 @@ class AppServiceProvider extends ServiceProvider
             return (new MailMessage)
                 ->subject(env('APP_NAME').' - Verificação de e-mail')
                 ->markdown('emails.verify', ['url' => $url]);
+        });
+		
+		ResetPassword::toMailUsing(function ($notifiable, $token) {
+            $url = url(route('password.reset', [
+                'token' => $token,
+                'email' => $notifiable->getEmailForPasswordReset(),
+            ], false));
+            return (new MailMessage)
+                ->subject(env('APP_NAME').' - Gerar nova senha')
+                ->markdown('emails.reset_password', ['url' => $url]);
         });
     }
 }
