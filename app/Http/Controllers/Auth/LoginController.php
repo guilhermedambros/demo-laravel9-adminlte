@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Str;
+use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -37,4 +40,36 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+     // API - LOGIN
+     public function authenticate(Request $request)
+     {
+         $credentials = $request->only('email', 'password');
+         if (Auth::attempt($credentials)) {
+             // Authentication passed...
+             $user = Auth::user();
+             if(is_null($user->api_token)){
+                 $user->api_token = Str::random(80);
+                 if(!$user->save()){
+                     return response()->json([
+                         'success' => false,
+                         'status_code' => 500,
+                         'message' => 'Não Foi possível Gerar um token válido para o usuário'
+                     ]);
+                 }
+             }
+             return response()->json([
+                 'success' => true,
+                 'id' => $user->id, 
+                 'status_code' => 200,
+                 'api_token' => $user->api_token, 
+                 
+             ]);
+         }
+         return response()->json([
+             'success' => false,
+             'status_code' => 401,
+             'message' => 'E-mail ou senha inválidos!'
+         ]);
+     }
 }
