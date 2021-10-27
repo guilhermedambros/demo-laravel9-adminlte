@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\ApiBasicAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::prefix('v1')->group(function () {
     Route::post('login', [LoginController::class, 'authenticate']);
 
     //Grupo de rotas que necessita api_token
-    Route::group(['middleware' => ['auth:api']], function () {
+    Route::group(['middleware' => [ApiBasicAuth::class]], function () {
         Route::get('/users', 'ApiController@users')->name('users');
     });
 });
