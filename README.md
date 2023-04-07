@@ -1,6 +1,6 @@
 ## Resumo
 
-Projeto Laravel 8, integrado com AdminLTE e Bootstrap.
+Projeto Laravel 9, integrado com AdminLTE e Bootstrap.
 
 ## Links
 
@@ -9,7 +9,7 @@ Links utilizados para implementações/integrações
 - [Audits](http://www.laravel-auditing.com/).
 - [RecaptchaV3](https://github.com/josiasmontag/laravel-recaptchav3).
 - [Roles & Permissions](https://www.itsolutionstuff.com/post/laravel-8-user-roles-and-permissions-tutorialexample.html).
-- [Laravel Docs](https://laravel.com/docs/8.x/).
+- [Laravel Docs](https://laravel.com/docs/9.x/).
 
 
 
